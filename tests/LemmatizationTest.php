@@ -385,6 +385,30 @@ class LemmatizationTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
+   * @return array
+   */
+  public function withNumbersProvider() {
+    $result = [];
+    for ($i = 0; $i <= 10; $i++) {
+        $result[] = ["{$i}", [new Lemma("{$i}")]];
+    }
+
+    return $result;
+  }
+
+    /**
+     * @dataProvider withNumbersProvider
+     *
+     * @param string $number
+     * @param Lemma[] $expectedResults
+     */
+    public function testNumbersLemmatization($number, array $expectedResults) {
+        $lemmas = self::$lemmatizer->getLemmas($number);
+        $message = $this->getMessage($expectedResults, $lemmas);
+        $this->assertEquals($expectedResults, $lemmas, $message);
+    }
+
+  /**
    * @param Lemma[] $expectedResult
    * @param Lemma[] $actualResult
    *

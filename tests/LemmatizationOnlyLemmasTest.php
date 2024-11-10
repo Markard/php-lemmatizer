@@ -224,4 +224,27 @@ class LemmatizationOnlyLemmasTest extends PHPUnit_Framework_TestCase {
       $this->assertContains($expectedLemma, $lemmas, $message, false, false);
     }
   }
+
+  /**
+   * @return array
+   */
+  public function withNumbersProvider() {
+    $result = [];
+    for ($i = 0; $i <= 10; $i++) {
+      $result[] = ["{$i}", ["{$i}"]];
+    }
+
+    return $result;
+  }
+
+    /**
+     * @dataProvider withNumbersProvider
+     *
+     * @param string $number
+     * @param Lemma[] $expectedResults
+     */
+    public function testNumbersLemmatization($number, array $expectedResults) {
+      $lemmas = self::$lemmatizer->getOnlyLemmas($number);
+      $this->assertEquals($expectedResults, $lemmas);
+    }
 }
