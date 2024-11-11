@@ -1,9 +1,9 @@
 <?php
 
-namespace Skyeng\Dictionary\FindIrregularBaseBehavior;
+namespace Markard\Dictionary\FindIrregularBaseBehavior;
 
-use Skyeng\Dictionary\PartOfSpeech;
-use Skyeng\Word;
+use Markard\Dictionary\PartOfSpeech;
+use Markard\Word;
 
 abstract class AbstractIrregularBaseFinder {
   /**

@@ -1,13 +1,13 @@
 <?php
 
-namespace Skyeng;
+namespace Markard;
 
 use Doctrine\Instantiator\Exception\InvalidArgumentException;
-use Skyeng\Dictionary\Adjective;
-use Skyeng\Dictionary\Adverb;
-use Skyeng\Dictionary\Noun;
-use Skyeng\Dictionary\PartOfSpeech;
-use Skyeng\Dictionary\Verb;
+use Markard\Dictionary\Adjective;
+use Markard\Dictionary\Adverb;
+use Markard\Dictionary\Noun;
+use Markard\Dictionary\PartOfSpeech;
+use Markard\Dictionary\Verb;
 
 class Lemmatizer {
   /**

@@ -1,10 +1,10 @@
 <?php
 
-namespace Skyeng\Dictionary\FindRegularBaseBehavior;
+namespace Markard\Dictionary\FindRegularBaseBehavior;
 
-use Skyeng\Dictionary\PartOfSpeech;
-use Skyeng\Lemma;
-use Skyeng\Word;
+use Markard\Dictionary\PartOfSpeech;
+use Markard\Lemma;
+use Markard\Word;
 
 abstract class AbstractRegularBaseFinder {
   /**

@@ -1,10 +1,10 @@
 <?php
 
-namespace Skyeng\Dictionary;
+namespace Markard\Dictionary;
 
-use Skyeng\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
-use Skyeng\Dictionary\FindRegularBaseBehavior\AdjectiveRegularBaseFinder;
-use Skyeng\Lemma;
+use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
+use Markard\Dictionary\FindRegularBaseBehavior\AdjectiveRegularBaseFinder;
+use Markard\Lemma;
 
 class Adjective extends PartOfSpeech {
   public function __construct() {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Skyeng;
+namespace Markard;
 
 abstract class Helper {
   /**

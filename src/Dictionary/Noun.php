@@ -1,10 +1,10 @@
 <?php
 
-namespace Skyeng\Dictionary;
+namespace Markard\Dictionary;
 
-use Skyeng\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
-use Skyeng\Dictionary\FindRegularBaseBehavior\NounRegularBaseFinder;
-use Skyeng\Lemma;
+use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
+use Markard\Dictionary\FindRegularBaseBehavior\NounRegularBaseFinder;
+use Markard\Lemma;
 
 class Noun extends PartOfSpeech {
   public function __construct() {

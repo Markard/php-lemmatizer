@@ -1,11 +1,11 @@
 <?php
 
-namespace Skyeng\Dictionary;
+namespace Markard\Dictionary;
 
-use Skyeng\Dictionary\FindIrregularBaseBehavior\AbstractIrregularBaseFinder;
-use Skyeng\Dictionary\FindRegularBaseBehavior\AbstractRegularBaseFinder;
-use Skyeng\Lemma;
-use Skyeng\Word;
+use Markard\Dictionary\FindIrregularBaseBehavior\AbstractIrregularBaseFinder;
+use Markard\Dictionary\FindRegularBaseBehavior\AbstractRegularBaseFinder;
+use Markard\Lemma;
+use Markard\Word;
 
 abstract class PartOfSpeech {
   /**

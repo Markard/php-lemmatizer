@@ -1,6 +1,6 @@
 <?php
 
-namespace Skyeng;
+namespace Markard;
 
 final class Lemma {
   const POS_NOUN = 'noun';

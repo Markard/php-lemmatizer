@@ -1,8 +1,8 @@
 <?php
 
-namespace Skyeng\Dictionary\FindIrregularBaseBehavior;
+namespace Markard\Dictionary\FindIrregularBaseBehavior;
 
-use Skyeng\Word;
+use Markard\Word;
 
 class IrregularBaseFinder extends AbstractIrregularBaseFinder {
   /**

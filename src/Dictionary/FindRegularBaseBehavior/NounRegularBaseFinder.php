@@ -1,8 +1,8 @@
 <?php
 
-namespace Skyeng\Dictionary\FindRegularBaseBehavior;
+namespace Markard\Dictionary\FindRegularBaseBehavior;
 
-use Skyeng\Word;
+use Markard\Word;
 
 class NounRegularBaseFinder extends AbstractRegularBaseFinder {
   /**

@@ -1,7 +1,7 @@
 <?php
 
-use Skyeng\Lemma;
-use Skyeng\Lemmatizer;
+use Markard\Lemma;
+use Markard\Lemmatizer;
 
 class LemmatizationTest extends PHPUnit_Framework_TestCase {
   /**
