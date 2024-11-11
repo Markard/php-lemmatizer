@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 	"hood" => "hood", "a" => "a", "a-bomb" => "a-bomb", "a-horizon" => "a-horizon", "a-line" => "a-line", 
 	"a-list" => "a-list", "a-team" => "a-team", "aa" => "aa", "aaa" => "aaa", "aachen" => "aachen", 

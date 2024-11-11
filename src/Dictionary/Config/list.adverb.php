@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 	"aback" => "aback", "abaft" => "abaft", "abaxially" => "abaxially", "abeam" => "abeam", "abed" => "abed", 
 	"abjectly" => "abjectly", "ably" => "ably", "abnormally" => "abnormally", "aboard" => "aboard", 

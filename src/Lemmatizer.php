@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Markard;
 
 use Doctrine\Instantiator\Exception\InvalidArgumentException;
@@ -31,12 +33,9 @@ class Lemmatizer
     }
 
     /**
-     * @param      $word
-     * @param null $partOfSpeech
-     *
      * @return string[]
      */
-    public function getOnlyLemmas($word, $partOfSpeech = null)
+    public function getOnlyLemmas(string $word, string $partOfSpeech = null): array
     {
         $lemmas = $this->getLemmas($word, $partOfSpeech);
         $result = [];
@@ -52,12 +51,9 @@ class Lemmatizer
     /**
      * Lemmatize a word
      *
-     * @param string $word
-     * @param string|null $partOfSpeech
-     *
      * @return Lemma[]
      */
-    public function getLemmas($word, $partOfSpeech = null)
+    public function getLemmas(string $word, string $partOfSpeech = null): array
     {
         if ($partOfSpeech !== null && !isset(self::$partsOfSpeech[$partOfSpeech])) {
             $posAsString = implode(' or ', array_keys(self::$partsOfSpeech));
@@ -95,23 +91,15 @@ class Lemmatizer
         return array_unique($lemmas, SORT_REGULAR);
     }
 
-    /**
-     * @param $partOfSpeech
-     *
-     * @return PartOfSpeech
-     */
-    private function getPos($partOfSpeech)
+    private function getPos(string $partOfSpeech): PartOfSpeech
     {
         return self::$partsOfSpeech[$partOfSpeech];
     }
 
     /**
-     * @param Word $word
-     * @param PartOfSpeech $pos
-     *
      * @return Lemma[]
      */
-    private function getBaseForm(Word $word, $pos)
+    private function getBaseForm(Word $word, PartOfSpeech $pos): array
     {
         $lemmas = [];
         if ($lemma = $pos->getIrregularBase($word)) {

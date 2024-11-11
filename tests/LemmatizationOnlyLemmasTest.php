@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Markard\Lemma;
 use Markard\Lemmatizer;
 use PHPUnit\Framework\TestCase;
@@ -32,10 +34,7 @@ class LemmatizationOnlyLemmasTest extends TestCase
         $this->assertEquals(self::$lemmatizer->getOnlyLemmas('abcdefg'), ['abcdefg']);
     }
 
-    /**
-     * @return array
-     */
-    public function withPosProvider()
+    public function withPosProvider(): array
     {
         return [
             [['wives', Lemma::POS_NOUN], ['wife']],
@@ -135,10 +134,7 @@ class LemmatizationOnlyLemmasTest extends TestCase
         }
     }
 
-    /**
-     * @return array
-     */
-    public function withoutPosProvider()
+    public function withoutPosProvider(): array
     {
         return [
             [['wives'], ['wife', 'wive']],
@@ -234,10 +230,7 @@ class LemmatizationOnlyLemmasTest extends TestCase
         }
     }
 
-    /**
-     * @return array
-     */
-    public function withNumbersProvider()
+    public function withNumbersProvider(): array
     {
         $result = [];
         for ($i = 0; $i <= 10; $i++) {
@@ -250,10 +243,9 @@ class LemmatizationOnlyLemmasTest extends TestCase
     /**
      * @dataProvider withNumbersProvider
      *
-     * @param string $number
      * @param Lemma[] $expectedResults
      */
-    public function testNumbersLemmatization($number, array $expectedResults)
+    public function testNumbersLemmatization(string $number, array $expectedResults)
     {
         $lemmas = self::$lemmatizer->getOnlyLemmas($number);
         $this->assertEquals($expectedResults, $lemmas);

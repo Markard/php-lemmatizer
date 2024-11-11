@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 	"abactinal" => "abactinal", "abandoned" => "abandoned", "abashed" => "abashed", "abasic" => "abasic", 
 	"abatable" => "abatable", "abatic" => "abatic", "abaxial" => "abaxial", "abbatial" => "abbatial", 

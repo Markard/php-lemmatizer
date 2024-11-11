@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Markard\Dictionary;
 
 use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
@@ -14,26 +16,17 @@ class Verb extends PartOfSpeech
         $this->findRegularBaseBehavior = new VerbRegularBaseFinder($this);
     }
 
-    /**
-     * @return string
-     */
-    public function getPartOfSpeechAsString()
+    public function getPartOfSpeechAsString(): string
     {
         return Lemma::POS_VERB;
     }
 
-    /**
-     * @inheritdoc
-     */
-    protected function loadWordsList()
+    protected function loadWordsList(): array
     {
         return require __DIR__ . "/Config/list.verb.php";
     }
 
-    /**
-     * @inheritdoc
-     */
-    protected function loadWordsExceptions()
+    protected function loadWordsExceptions(): array
     {
         return require __DIR__ . "/Config/exceptions.verb.php";
     }

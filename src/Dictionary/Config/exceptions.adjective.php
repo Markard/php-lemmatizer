@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 	"acer" => "acer", "after" => "after", "airier" => "airy", "airiest" => "airy", "all-arounder" => "all-arounder", 
 	"angrier" => "angry", "angriest" => "angry", "archer" => "archer", "artier" => "arty", "artiest" => "arty", 
