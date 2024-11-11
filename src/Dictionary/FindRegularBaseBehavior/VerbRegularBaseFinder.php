@@ -36,9 +36,9 @@ class VerbRegularBaseFinder extends AbstractRegularBaseFinder {
       if(!isset($this->partOfSpeech->getWordsList()[$ingBase]) || $this->partOfSpeech->getWordsList()[$ingBase] !== $ingBase) {
         $bases[] = substr($word->asString(), 0, -3);
       }
-    } elseif($word->isEndsWith('able') && $word->isEndsWith('able')) {
+    } elseif($word->isEndsWith('able')) {
       $bases[] = substr($word->asString(), 0, -5);
-    } elseif($word->isEndsWith('ability') && $word->isEndsWith('ability')) {
+    } elseif($word->isEndsWith('ability')) {
       $bases[] = substr($word->asString(), 0, -8);
     } elseif($word->isEndsWith('s')) {
       $bases[] = substr($word->asString(), 0, -1);
