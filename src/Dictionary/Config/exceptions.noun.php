@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 	"aardwolves" => "aardwolf", "abaci" => "abacus", "aboideaux" => "aboideau", "aboiteaux" => "aboiteau", 
 	"abscissae" => "abscissa", "acanthi" => "acanthus", "acari" => "acarus", "acciaccature" => "acciaccatura", 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Markard\Dictionary;
 
 use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
@@ -14,26 +16,17 @@ class Adverb extends PartOfSpeech
         $this->findRegularBaseBehavior = new AdjectiveRegularBaseFinder($this);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getPartOfSpeechAsString()
+    public function getPartOfSpeechAsString(): string
     {
         return Lemma::POS_ADVERB;
     }
 
-    /**
-     * @inheritdoc
-     */
-    protected function loadWordsList()
+    protected function loadWordsList(): array
     {
         return require __DIR__ . "/Config/list.adverb.php";
     }
 
-    /**
-     * @inheritdoc
-     */
-    protected function loadWordsExceptions()
+    protected function loadWordsExceptions(): array
     {
         return require __DIR__ . "/Config/exceptions.adverb.php";
     }

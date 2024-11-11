@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 	"abetted" => "abet", "abetting" => "abet", "abhorred" => "abhor", "abhorring" => "abhor", "abode" => "abide", 
 	"abought" => "aby", "about-shipped" => "about-ship", "about-shipping" => "about-ship", "abutted" => "abut", 

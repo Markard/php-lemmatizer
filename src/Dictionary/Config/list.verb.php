@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 	"aah" => "aah", "abacinate" => "abacinate", "abandon" => "abandon", "abase" => "abase", "abash" => "abash", 
 	"abate" => "abate", "abbreviate" => "abbreviate", "abdicate" => "abdicate", "abduce" => "abduce", 

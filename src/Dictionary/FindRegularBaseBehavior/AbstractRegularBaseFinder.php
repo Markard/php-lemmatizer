@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Markard\Dictionary\FindRegularBaseBehavior;
 
 use Markard\Dictionary\PartOfSpeech;
@@ -26,14 +28,14 @@ abstract class AbstractRegularBaseFinder
      *
      * @return Lemma[]
      */
-    abstract public function getRegularBases(Word $word);
+    abstract public function getRegularBases(Word $word): array;
 
     /**
      * @param Word $word
      *
      * @return string[]
      */
-    protected function getMorphologicalSubstitutionBases(Word $word)
+    protected function getMorphologicalSubstitutionBases(Word $word): array
     {
         $bases = [];
         foreach ($this->getMorphologicalSubstitutions() as list($morpho, $origin)) {
@@ -48,14 +50,14 @@ abstract class AbstractRegularBaseFinder
     /**
      * @return array of arrays like [morpho, origin]
      */
-    abstract protected function getMorphologicalSubstitutions();
+    abstract protected function getMorphologicalSubstitutions(): array;
 
     /**
      * @param string[] $bases
      *
      * @return string[]
      */
-    protected function filterValidBases(array $bases)
+    protected function filterValidBases(array $bases): array
     {
         $result = [];
         foreach ($bases as $base) {
@@ -67,12 +69,7 @@ abstract class AbstractRegularBaseFinder
         return $result;
     }
 
-    /**
-     * @param string $base
-     *
-     * @return bool
-     */
-    protected function isValidBase($base)
+    protected function isValidBase(string $base): bool
     {
         return strlen($base) > 1 && isset($this->partOfSpeech->getWordsList()[$base]) && $this->partOfSpeech->getWordsList()[$base] === $base;
     }

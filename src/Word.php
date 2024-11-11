@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Markard;
 
 class Word
@@ -12,23 +14,17 @@ class Word
     /**
      * @param string $word
      */
-    public function __construct($word)
+    public function __construct(string $word)
     {
         $this->word = $word;
     }
 
-    /**
-     * @return string
-     */
-    public function asString()
+    public function asString(): string
     {
         return $this->word;
     }
 
-    /**
-     * @return bool
-     */
-    public function isEndsWithEs()
+    public function isEndsWithEs(): bool
     {
         $ends = ['ches', 'shes', 'oes', 'ses', 'xes', 'zes'];
         foreach ($ends as $end) {
@@ -40,10 +36,7 @@ class Word
         return false;
     }
 
-    /**
-     * @return bool
-     */
-    public function isEndsWithVerbVowelYs()
+    public function isEndsWithVerbVowelYs(): bool
     {
         $ends = ['ays', 'eys', 'iys', 'oys', 'uys'];
         foreach ($ends as $end) {
@@ -55,22 +48,12 @@ class Word
         return false;
     }
 
-    /**
-     * @param string $end
-     *
-     * @return bool
-     */
-    public function isEndsWith($end)
+    public function isEndsWith(string $end): bool
     {
         return substr($this->word, -strlen($end)) === $end;
     }
 
-    /**
-     * @param string $suffix
-     *
-     * @return bool
-     */
-    public function isDoubleConsonant($suffix)
+    public function isDoubleConsonant(string $suffix): bool
     {
         $length = strlen($this->word) - strlen($suffix);
 

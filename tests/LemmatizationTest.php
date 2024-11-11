@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 use Markard\Lemma;
 use Markard\Lemmatizer;
+use PHPUnit\Framework\TestCase;
 
-class LemmatizationTest extends PHPUnit_Framework_TestCase
+class LemmatizationTest extends TestCase
 {
     /**
      * @var Lemmatizer
@@ -34,7 +37,7 @@ class LemmatizationTest extends PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function withPosProvider()
+    public function withPosProvider(): array
     {
         return [
             [['wives', Lemma::POS_NOUN], [new Lemma('wife', Lemma::POS_NOUN)]],
@@ -156,7 +159,6 @@ class LemmatizationTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider withPosProvider
      *
-     * @param array $wordWithPos
      * @param Lemma[] $expectedResult
      */
     public function testLemmatizationWithPos(array $wordWithPos, array $expectedResult)
@@ -175,7 +177,7 @@ class LemmatizationTest extends PHPUnit_Framework_TestCase
      *
      * @return string
      */
-    private function getMessage(array $expectedResult, array $actualResult)
+    private function getMessage(array $expectedResult, array $actualResult): string
     {
         return 'Expected lemmas: ' . implode(', ', $this->getLemmasAsArrayOfStrings($expectedResult)) . "\n"
             . 'Actual lemmas: ' . implode(', ', $this->getLemmasAsArrayOfStrings($actualResult)) . "\n";
@@ -186,7 +188,7 @@ class LemmatizationTest extends PHPUnit_Framework_TestCase
      *
      * @return string[]
      */
-    private function getLemmasAsArrayOfStrings(array $lemmas)
+    private function getLemmasAsArrayOfStrings(array $lemmas): array
     {
         $result = [];
         foreach ($lemmas as $lemma) {
@@ -196,10 +198,7 @@ class LemmatizationTest extends PHPUnit_Framework_TestCase
         return $result;
     }
 
-    /**
-     * @return array
-     */
-    public function withoutPosProvider()
+    public function withoutPosProvider(): array
     {
         return [
             [['wives'], [new Lemma('wife', Lemma::POS_NOUN), new Lemma('wive', Lemma::POS_VERB)]],
@@ -406,7 +405,6 @@ class LemmatizationTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider withoutPosProvider
      *
-     * @param array $wordWithoutPos
      * @param Lemma[] $expectedResult
      */
     public function testLemmatizationWithoutPos(array $wordWithoutPos, array $expectedResult)
@@ -419,10 +417,7 @@ class LemmatizationTest extends PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @return array
-     */
-    public function withNumbersProvider()
+    public function withNumbersProvider(): array
     {
         $result = [];
         for ($i = 0; $i <= 10; $i++) {
@@ -435,10 +430,9 @@ class LemmatizationTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider withNumbersProvider
      *
-     * @param string $number
      * @param Lemma[] $expectedResults
      */
-    public function testNumbersLemmatization($number, array $expectedResults)
+    public function testNumbersLemmatization(string $number, array $expectedResults)
     {
         $lemmas = self::$lemmatizer->getLemmas($number);
         $message = $this->getMessage($expectedResults, $lemmas);

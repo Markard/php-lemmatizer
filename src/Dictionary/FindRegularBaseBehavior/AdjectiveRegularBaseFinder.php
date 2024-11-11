@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Markard\Dictionary\FindRegularBaseBehavior;
 
 use Markard\Word;
@@ -9,7 +11,7 @@ class AdjectiveRegularBaseFinder extends AbstractRegularBaseFinder
     /**
      * @inheritdoc
      */
-    public function getRegularBases(Word $word)
+    public function getRegularBases(Word $word): array
     {
         $bases = [];
         if ($word->isEndsWith('est') && $word->isDoubleConsonant('est')) {
@@ -32,7 +34,7 @@ class AdjectiveRegularBaseFinder extends AbstractRegularBaseFinder
     /**
      * @inheritdoc
      */
-    protected function getMorphologicalSubstitutions()
+    protected function getMorphologicalSubstitutions(): array
     {
         return [
             ['er', ''],

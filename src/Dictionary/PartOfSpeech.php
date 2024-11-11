@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Markard\Dictionary;
 
 use Markard\Dictionary\FindIrregularBaseBehavior\AbstractIrregularBaseFinder;
@@ -29,10 +31,7 @@ abstract class PartOfSpeech
      */
     protected $findRegularBaseBehavior;
 
-    /**
-     * @return array
-     */
-    public function getWordsList()
+    public function getWordsList(): array
     {
         if (!$this->data) {
             $this->data = $this->loadWordsList();
@@ -43,15 +42,10 @@ abstract class PartOfSpeech
 
     /**
      * Load words list from configuration file.
-     *
-     * @return array
      */
-    abstract protected function loadWordsList();
+    abstract protected function loadWordsList(): array;
 
-    /**
-     * @return array
-     */
-    public function getWordsExceptions()
+    public function getWordsExceptions(): array
     {
         if (!$this->exceptions) {
             $this->exceptions = $this->loadWordsExceptions();
@@ -62,10 +56,8 @@ abstract class PartOfSpeech
 
     /**
      * Load word exceptions from configuration file.
-     *
-     * @return array
      */
-    abstract protected function loadWordsExceptions();
+    abstract protected function loadWordsExceptions(): array;
 
     /**
      * @param Word $word
@@ -81,17 +73,14 @@ abstract class PartOfSpeech
         return null;
     }
 
-    /**
-     * @return string
-     */
-    abstract public function getPartOfSpeechAsString();
+    abstract public function getPartOfSpeechAsString(): string;
 
     /**
      * @param Word $word
      *
      * @return Lemma[]
      */
-    public function getRegularBases(Word $word)
+    public function getRegularBases(Word $word): array
     {
         $lemmas = [];
         $bases = $this->findRegularBaseBehavior->getRegularBases($word);

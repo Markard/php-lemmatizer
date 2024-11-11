@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Markard;
 
 final class Lemma
@@ -23,16 +25,13 @@ final class Lemma
      * @param string $lemma
      * @param string|null $partOfSpeech
      */
-    public function __construct($lemma, $partOfSpeech = null)
+    public function __construct(string $lemma, string $partOfSpeech = null)
     {
         $this->lemma = $lemma;
         $this->partOfSpeech = $partOfSpeech;
     }
 
-    /**
-     * @return string
-     */
-    public function getLemma()
+    public function getLemma(): string
     {
         return $this->lemma;
     }
