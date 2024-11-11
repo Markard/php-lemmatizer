@@ -40,15 +40,4 @@ final class Lemma {
   public function getPartOfSpeech() {
     return $this->partOfSpeech;
   }
-
-  /**
-   * @param null|string $partOfSpeech
-   *
-   * @return $this
-   */
-  public function setPartOfSpeech($partOfSpeech) {
-    $this->partOfSpeech = $partOfSpeech;
-
-    return $this;
-  }
 }
