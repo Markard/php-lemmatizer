@@ -2,8 +2,9 @@
 
 use Markard\Lemma;
 use Markard\Lemmatizer;
+use PHPUnit\Framework\TestCase;
 
-class LemmatizationOnlyLemmasTest extends PHPUnit_Framework_TestCase
+class LemmatizationOnlyLemmasTest extends TestCase
 {
     /**
      * @var Lemmatizer
