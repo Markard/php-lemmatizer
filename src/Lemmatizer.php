@@ -48,37 +48,63 @@ final class Lemmatizer
      */
     public function getLemmas(string $word, string $partOfSpeech = null): array
     {
+        $this->validatePartOfSpeech($partOfSpeech);
+
+        $wordEntity = new Word($word);
+        if ($partOfSpeech !== null) {
+            $lemmas = $this->getBaseFormForPartOfSpeech($wordEntity, $partOfSpeech);
+        } else {
+            $lemmas = $this->getLemmasForAllPartsOfSpeech($wordEntity);
+        }
+
+        return array_unique($lemmas, SORT_REGULAR);
+    }
+
+    private function validatePartOfSpeech(?string $partOfSpeech): void
+    {
         if ($partOfSpeech !== null && !isset(self::$partsOfSpeech[$partOfSpeech])) {
             $posAsString = implode(' or ', array_keys(self::$partsOfSpeech));
             throw new InvalidArgumentException("partsOfSpeech must be {$posAsString}.");
         }
+    }
 
-        $wordEntity = new Word($word);
-        if ($partOfSpeech !== null) {
-            $lemmas = $this->getBaseForm($wordEntity, self::$partsOfSpeech[$partOfSpeech]);
-            if (!$lemmas) {
-                $lemmas[] = new Lemma($word, $partOfSpeech);
-            }
-        } else {
-            $lemmas = [];
+    /**
+     * @return Lemma[]
+     */
+    public function getBaseFormForPartOfSpeech(Word $wordEntity, string $partOfSpeech): array
+    {
+        $lemmas = $this->getBaseForm($wordEntity, self::$partsOfSpeech[$partOfSpeech]);
+
+        if (!$lemmas) {
+            $lemmas[] = new Lemma($wordEntity->asString(), $partOfSpeech);
+        }
+
+        return $lemmas;
+    }
+
+    /**
+     * @return Lemma[]
+     */
+    private function getLemmasForAllPartsOfSpeech(Word $word): array
+    {
+        $lemmas = [];
+        foreach (self::$partsOfSpeech as $pos) {
+            $lemmas = array_merge($lemmas, $this->getBaseForm($word, $pos));
+        }
+
+        if (!$lemmas) {
             foreach (self::$partsOfSpeech as $pos) {
-                $lemmas = array_merge($lemmas, $this->getBaseForm($wordEntity, $pos));
-            }
-
-            if (!$lemmas) {
-                foreach (self::$partsOfSpeech as $pos) {
-                    if (isset($pos->getWordsList()[$word])) {
-                        $lemmas[] = new Lemma($word, $pos->getPartOfSpeechAsString());
-                    }
+                if (isset($pos->getWordsList()[$word->asString()])) {
+                    $lemmas[] = new Lemma($word->asString(), $pos->getPartOfSpeechAsString());
                 }
-            }
-
-            if (!$lemmas) {
-                $lemmas[] = new Lemma($word);
             }
         }
 
-        return array_unique($lemmas, SORT_REGULAR);
+        if (!$lemmas) {
+            $lemmas[] = new Lemma($word->asString());
+        }
+
+        return $lemmas;
     }
 
     /**
