@@ -8,7 +8,7 @@ use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
 use Markard\Dictionary\FindRegularBaseBehavior\AdjectiveRegularBaseFinder;
 use Markard\Lemma;
 
-class Adverb extends PartOfSpeech
+final class Adverb extends PartOfSpeech
 {
     public function __construct()
     {

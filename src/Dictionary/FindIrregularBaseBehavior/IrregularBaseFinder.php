@@ -6,7 +6,7 @@ namespace Markard\Dictionary\FindIrregularBaseBehavior;
 
 use Markard\Word;
 
-class IrregularBaseFinder extends AbstractIrregularBaseFinder
+final class IrregularBaseFinder extends AbstractIrregularBaseFinder
 {
     public function getIrregularBase(Word $word): ?string
     {

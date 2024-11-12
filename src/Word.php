@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Markard;
 
-class Word
+final class Word
 {
     private string $word;
 

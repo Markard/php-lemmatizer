@@ -11,7 +11,7 @@ use Markard\Dictionary\Noun;
 use Markard\Dictionary\PartOfSpeech;
 use Markard\Dictionary\Verb;
 
-class Lemmatizer
+final class Lemmatizer
 {
     private static array $partsOfSpeech = [];
 

@@ -8,7 +8,7 @@ use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
 use Markard\Dictionary\FindRegularBaseBehavior\NounRegularBaseFinder;
 use Markard\Lemma;
 
-class Noun extends PartOfSpeech
+final class Noun extends PartOfSpeech
 {
     public function __construct()
     {
