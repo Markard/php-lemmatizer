@@ -6,12 +6,9 @@ namespace Markard\Dictionary\FindIrregularBaseBehavior;
 
 use Markard\Word;
 
-class IrregularBaseFinder extends AbstractIrregularBaseFinder
+final class IrregularBaseFinder extends AbstractIrregularBaseFinder
 {
-    /**
-     * @inheritdoc
-     */
-    public function getIrregularBase(Word $word)
+    public function getIrregularBase(Word $word): ?string
     {
         $wordString = $word->asString();
         $exceptions = $this->partOfSpeech->getWordsExceptions();

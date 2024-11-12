@@ -8,7 +8,7 @@ use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
 use Markard\Dictionary\FindRegularBaseBehavior\VerbRegularBaseFinder;
 use Markard\Lemma;
 
-class Verb extends PartOfSpeech
+final class Verb extends PartOfSpeech
 {
     public function __construct()
     {

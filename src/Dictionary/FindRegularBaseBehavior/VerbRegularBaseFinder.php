@@ -6,7 +6,7 @@ namespace Markard\Dictionary\FindRegularBaseBehavior;
 
 use Markard\Word;
 
-class VerbRegularBaseFinder extends AbstractRegularBaseFinder
+final class VerbRegularBaseFinder extends AbstractRegularBaseFinder
 {
     /**
      * @inheritdoc

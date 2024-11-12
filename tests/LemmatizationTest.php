@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Markard\Lemma;
 use Markard\Lemmatizer;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class LemmatizationTest extends TestCase
 {
@@ -13,7 +14,7 @@ class LemmatizationTest extends TestCase
      */
     private static $lemmatizer;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         self::$lemmatizer = new Lemmatizer();
     }
@@ -37,7 +38,7 @@ class LemmatizationTest extends TestCase
     /**
      * @return array
      */
-    public function withPosProvider(): array
+    public static function withPosProvider(): array
     {
         return [
             [['wives', Lemma::POS_NOUN], [new Lemma('wife', Lemma::POS_NOUN)]],
@@ -154,10 +155,9 @@ class LemmatizationTest extends TestCase
         ];
     }
 
+    #[DataProvider("withPosProvider")]
     /**
      * Lemmatize a word with a part of speech (pos).
-     *
-     * @dataProvider withPosProvider
      *
      * @param Lemma[] $expectedResult
      */
@@ -165,9 +165,9 @@ class LemmatizationTest extends TestCase
     {
         $lemmas = self::$lemmatizer->getLemmas(...$wordWithPos);
         $message = $this->getMessage($expectedResult, $lemmas);
-        $this->assertEquals(count($expectedResult), count($lemmas), $message);
+        $this->assertSameSize($expectedResult, $lemmas, $message);
         foreach ($expectedResult as $expectedLemma) {
-            $this->assertContains($expectedLemma, $lemmas, $message, false, false);
+            $this->assertContainsEquals($expectedLemma, $lemmas, $message, false, false);
         }
     }
 
@@ -198,7 +198,7 @@ class LemmatizationTest extends TestCase
         return $result;
     }
 
-    public function withoutPosProvider(): array
+    public static function withoutPosProvider(): array
     {
         return [
             [['wives'], [new Lemma('wife', Lemma::POS_NOUN), new Lemma('wive', Lemma::POS_VERB)]],
@@ -400,10 +400,9 @@ class LemmatizationTest extends TestCase
         ];
     }
 
+    #[DataProvider("withoutPosProvider")]
     /**
      * Lemmatizer leaves alone words that its dictionary does not contain.
-     *
-     * @dataProvider withoutPosProvider
      *
      * @param Lemma[] $expectedResult
      */
@@ -411,13 +410,13 @@ class LemmatizationTest extends TestCase
     {
         $lemmas = self::$lemmatizer->getLemmas(...$wordWithoutPos);
         $message = $this->getMessage($expectedResult, $lemmas);
-        $this->assertEquals(count($expectedResult), count($lemmas), $message);
+        $this->assertSameSize($expectedResult, $lemmas, $message);
         foreach ($expectedResult as $expectedLemma) {
-            $this->assertContains($expectedLemma, $lemmas, $message, false, false);
+            $this->assertContainsEquals($expectedLemma, $lemmas, $message, false, false);
         }
     }
 
-    public function withNumbersProvider(): array
+    public static function withNumbersProvider(): array
     {
         $result = [];
         for ($i = 0; $i <= 10; $i++) {
@@ -427,9 +426,8 @@ class LemmatizationTest extends TestCase
         return $result;
     }
 
+    #[DataProvider("withNumbersProvider")]
     /**
-     * @dataProvider withNumbersProvider
-     *
      * @param Lemma[] $expectedResults
      */
     public function testNumbersLemmatization(string $number, array $expectedResults)

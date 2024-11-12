@@ -6,26 +6,16 @@ namespace Markard;
 
 final class Lemma
 {
-    const POS_NOUN = 'noun';
-    const POS_VERB = 'verb';
-    const POS_ADJECTIVE = 'adjective';
-    const POS_ADVERB = 'adverb';
+    const string POS_NOUN = 'noun';
+    const string POS_VERB = 'verb';
+    const string POS_ADJECTIVE = 'adjective';
+    const string POS_ADVERB = 'adverb';
 
-    /**
-     * @var string
-     */
-    private $lemma;
+    private string $lemma;
 
-    /**
-     * @var string|null
-     */
-    private $partOfSpeech;
+    private ?string $partOfSpeech;
 
-    /**
-     * @param string $lemma
-     * @param string|null $partOfSpeech
-     */
-    public function __construct(string $lemma, string $partOfSpeech = null)
+    public function __construct(string $lemma, ?string $partOfSpeech = null)
     {
         $this->lemma = $lemma;
         $this->partOfSpeech = $partOfSpeech;
@@ -36,10 +26,7 @@ final class Lemma
         return $this->lemma;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getPartOfSpeech()
+    public function getPartOfSpeech(): ?string
     {
         return $this->partOfSpeech;
     }

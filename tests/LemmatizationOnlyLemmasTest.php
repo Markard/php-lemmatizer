@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Markard\Lemma;
 use Markard\Lemmatizer;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class LemmatizationOnlyLemmasTest extends TestCase
@@ -13,7 +14,7 @@ class LemmatizationOnlyLemmasTest extends TestCase
      */
     private static $lemmatizer;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         self::$lemmatizer = new Lemmatizer();
     }
@@ -34,7 +35,7 @@ class LemmatizationOnlyLemmasTest extends TestCase
         $this->assertEquals(self::$lemmatizer->getOnlyLemmas('abcdefg'), ['abcdefg']);
     }
 
-    public function withPosProvider(): array
+    public static function withPosProvider(): array
     {
         return [
             [['wives', Lemma::POS_NOUN], ['wife']],
@@ -114,10 +115,9 @@ class LemmatizationOnlyLemmasTest extends TestCase
         ];
     }
 
+    #[DataProvider("withPosProvider")]
     /**
      * Lemmatize a word with a part of speech (pos).
-     *
-     * @dataProvider withPosProvider
      *
      * @param array $wordWithPos
      * @param Lemma[] $expectedResult
@@ -134,7 +134,7 @@ class LemmatizationOnlyLemmasTest extends TestCase
         }
     }
 
-    public function withoutPosProvider(): array
+    public static function withoutPosProvider(): array
     {
         return [
             [['wives'], ['wife', 'wive']],
@@ -210,10 +210,9 @@ class LemmatizationOnlyLemmasTest extends TestCase
         ];
     }
 
+    #[DataProvider("withoutPosProvider")]
     /**
      * Lemmatizer leaves alone words that its dictionary does not contain.
-     *
-     * @dataProvider withoutPosProvider
      *
      * @param array $wordWithoutPos
      * @param Lemma[] $expectedResult
@@ -230,7 +229,7 @@ class LemmatizationOnlyLemmasTest extends TestCase
         }
     }
 
-    public function withNumbersProvider(): array
+    public static function withNumbersProvider(): array
     {
         $result = [];
         for ($i = 0; $i <= 10; $i++) {
@@ -240,9 +239,8 @@ class LemmatizationOnlyLemmasTest extends TestCase
         return $result;
     }
 
+    #[DataProvider("withNumbersProvider")]
     /**
-     * @dataProvider withNumbersProvider
-     *
      * @param Lemma[] $expectedResults
      */
     public function testNumbersLemmatization(string $number, array $expectedResults)

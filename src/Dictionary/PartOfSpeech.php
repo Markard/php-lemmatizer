@@ -11,25 +11,13 @@ use Markard\Word;
 
 abstract class PartOfSpeech
 {
-    /**
-     * @var array
-     */
-    protected $data;
+    protected array $data = [];
 
-    /**
-     * @var array
-     */
-    protected $exceptions;
+    protected array $exceptions = [];
 
-    /**
-     * @var AbstractIrregularBaseFinder
-     */
-    protected $findIrregularBaseBehavior;
+    protected AbstractIrregularBaseFinder $findIrregularBaseBehavior;
 
-    /**
-     * @var AbstractRegularBaseFinder
-     */
-    protected $findRegularBaseBehavior;
+    protected AbstractRegularBaseFinder $findRegularBaseBehavior;
 
     public function getWordsList(): array
     {
@@ -59,12 +47,7 @@ abstract class PartOfSpeech
      */
     abstract protected function loadWordsExceptions(): array;
 
-    /**
-     * @param Word $word
-     *
-     * @return null|Lemma
-     */
-    public function getIrregularBase(Word $word)
+    public function getIrregularBase(Word $word): ?Lemma
     {
         if ($base = $this->findIrregularBaseBehavior->getIrregularBase($word)) {
             return new Lemma($base, $this->getPartOfSpeechAsString());
@@ -76,8 +59,6 @@ abstract class PartOfSpeech
     abstract public function getPartOfSpeechAsString(): string;
 
     /**
-     * @param Word $word
-     *
      * @return Lemma[]
      */
     public function getRegularBases(Word $word): array
