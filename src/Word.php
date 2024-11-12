@@ -52,8 +52,13 @@ final class Word
         $length = strlen($this->word) - strlen($suffix);
 
         return $length > 2
-            && Helper::isVowel($this->word[$length - 3])
-            && !Helper::isVowel($this->word[$length - 2])
+            && $this->isVowel($this->word[$length - 3])
+            && !$this->isVowel($this->word[$length - 2])
             && $this->word[$length - 2] === $this->word[$length - 1];
+    }
+
+    private function isVowel(string $letter): bool
+    {
+        return in_array($letter, ['a', 'e', 'i', 'o', 'u']);
     }
 }
