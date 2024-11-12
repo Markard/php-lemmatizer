@@ -34,15 +34,11 @@ final class Lemmatizer
      */
     public function getOnlyLemmas(string $word, string $partOfSpeech = null): array
     {
-        $lemmas = $this->getLemmas($word, $partOfSpeech);
-        $result = [];
-        foreach ($lemmas as $lemma) {
-            if (!in_array($lemma->getLemma(), $result)) {
-                $result[] = $lemma->getLemma();
-            }
-        }
+        $result = array_map(function (Lemma $lemma) {
+            return $lemma->getLemma();
+        }, $this->getLemmas($word, $partOfSpeech));
 
-        return $result;
+        return array_unique($result);
     }
 
     /**
