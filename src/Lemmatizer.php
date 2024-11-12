@@ -59,8 +59,7 @@ final class Lemmatizer
 
         $wordEntity = new Word($word);
         if ($partOfSpeech !== null) {
-            $pos = $this->getPos($partOfSpeech);
-            $lemmas = $this->getBaseForm($wordEntity, $pos);
+            $lemmas = $this->getBaseForm($wordEntity, self::$partsOfSpeech[$partOfSpeech]);
             if (!$lemmas) {
                 $lemmas[] = new Lemma($word, $partOfSpeech);
             }
@@ -84,11 +83,6 @@ final class Lemmatizer
         }
 
         return array_unique($lemmas, SORT_REGULAR);
-    }
-
-    private function getPos(string $partOfSpeech): PartOfSpeech
-    {
-        return self::$partsOfSpeech[$partOfSpeech];
     }
 
     /**
