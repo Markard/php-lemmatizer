@@ -6,14 +6,8 @@ namespace Markard;
 
 class Word
 {
-    /**
-     * @var string
-     */
-    private $word;
+    private string $word;
 
-    /**
-     * @param string $word
-     */
     public function __construct(string $word)
     {
         $this->word = $word;
@@ -50,7 +44,7 @@ class Word
 
     public function isEndsWith(string $end): bool
     {
-        return substr($this->word, -strlen($end)) === $end;
+        return str_ends_with($this->word, $end);
     }
 
     public function isDoubleConsonant(string $suffix): bool

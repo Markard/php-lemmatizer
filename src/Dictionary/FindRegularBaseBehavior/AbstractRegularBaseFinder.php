@@ -10,29 +10,19 @@ use Markard\Word;
 
 abstract class AbstractRegularBaseFinder
 {
-    /**
-     * @var PartOfSpeech
-     */
-    protected $partOfSpeech;
+    protected PartOfSpeech $partOfSpeech;
 
-    /**
-     * @param PartOfSpeech $partOfSpeech
-     */
     public function __construct(PartOfSpeech $partOfSpeech)
     {
         $this->partOfSpeech = $partOfSpeech;
     }
 
     /**
-     * @param Word $word
-     *
-     * @return Lemma[]
+     * @return string[]
      */
     abstract public function getRegularBases(Word $word): array;
 
     /**
-     * @param Word $word
-     *
      * @return string[]
      */
     protected function getMorphologicalSubstitutionBases(Word $word): array

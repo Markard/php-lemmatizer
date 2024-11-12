@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Markard;
 
-use Doctrine\Instantiator\Exception\InvalidArgumentException;
+use InvalidArgumentException;
 use Markard\Dictionary\Adjective;
 use Markard\Dictionary\Adverb;
 use Markard\Dictionary\Noun;
@@ -13,10 +13,7 @@ use Markard\Dictionary\Verb;
 
 class Lemmatizer
 {
-    /**
-     * @var array
-     */
-    private static $partsOfSpeech;
+    private static array $partsOfSpeech = [];
 
     public function __construct()
     {
@@ -69,13 +66,11 @@ class Lemmatizer
             }
         } else {
             $lemmas = [];
-            /** @var PartOfSpeech $pos */
             foreach (self::$partsOfSpeech as $pos) {
                 $lemmas = array_merge($lemmas, $this->getBaseForm($wordEntity, $pos));
             }
 
             if (!$lemmas) {
-                /** @var PartOfSpeech $pos */
                 foreach (self::$partsOfSpeech as $pos) {
                     if (isset($pos->getWordsList()[$word])) {
                         $lemmas[] = new Lemma($word, $pos->getPartOfSpeechAsString());
