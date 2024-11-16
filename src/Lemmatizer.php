@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Markard;
 
 use InvalidArgumentException;
-use Markard\Dictionary\Adjective;
-use Markard\Dictionary\Adverb;
-use Markard\Dictionary\Noun;
-use Markard\Dictionary\PartOfSpeech;
-use Markard\Dictionary\Verb;
+use Markard\Pos\Adjective;
+use Markard\Pos\Adverb;
+use Markard\Pos\Noun;
+use Markard\Pos\PartOfSpeech;
+use Markard\Pos\Verb;
 
 final class Lemmatizer
 {

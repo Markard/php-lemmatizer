@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Markard\Dictionary\FindRegularBaseBehavior;
+namespace Markard\BaseFinder\FindRegularBaseBehavior;
 
-use Markard\Dictionary\PartOfSpeech;
-use Markard\Lemma;
+use Markard\Pos\PartOfSpeech;
 use Markard\Word;
 
 abstract class AbstractRegularBaseFinder

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Markard\Dictionary\FindIrregularBaseBehavior;
+namespace Markard\BaseFinder\FindIrregularBaseBehavior;
 
-use Markard\Dictionary\PartOfSpeech;
+use Markard\Pos\PartOfSpeech;
 use Markard\Word;
 
 abstract class AbstractIrregularBaseFinder

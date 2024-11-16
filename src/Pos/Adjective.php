@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Markard\Dictionary;
+namespace Markard\Pos;
 
-use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
-use Markard\Dictionary\FindRegularBaseBehavior\AdjectiveRegularBaseFinder;
+use Markard\BaseFinder\FindIrregularBaseBehavior\IrregularBaseFinder;
+use Markard\BaseFinder\FindRegularBaseBehavior\AdjectiveRegularBaseFinder;
 use Markard\Lemma;
 
 final class Adjective extends PartOfSpeech
@@ -23,11 +23,11 @@ final class Adjective extends PartOfSpeech
 
     protected function loadWordsList(): array
     {
-        return require __DIR__ . "/Config/list.adjective.php";
+        return require __DIR__ . "/../Dictionary/list.adjective.php";
     }
 
     protected function loadWordsExceptions(): array
     {
-        return require __DIR__ . "/Config/exceptions.adjective.php";
+        return require __DIR__ . "/../Dictionary/exceptions.adjective.php";
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Markard\Dictionary\FindRegularBaseBehavior;
+namespace Markard\BaseFinder\FindRegularBaseBehavior;
 
 use Markard\Word;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Markard\Dictionary;
+namespace Markard\Pos;
 
-use Markard\Dictionary\FindIrregularBaseBehavior\AbstractIrregularBaseFinder;
-use Markard\Dictionary\FindRegularBaseBehavior\AbstractRegularBaseFinder;
+use Markard\BaseFinder\FindIrregularBaseBehavior\AbstractIrregularBaseFinder;
+use Markard\BaseFinder\FindRegularBaseBehavior\AbstractRegularBaseFinder;
 use Markard\Lemma;
 use Markard\Word;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Markard\Dictionary;
+namespace Markard\Pos;
 
-use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
-use Markard\Dictionary\FindRegularBaseBehavior\VerbRegularBaseFinder;
+use Markard\BaseFinder\FindIrregularBaseBehavior\IrregularBaseFinder;
+use Markard\BaseFinder\FindRegularBaseBehavior\VerbRegularBaseFinder;
 use Markard\Lemma;
 
 final class Verb extends PartOfSpeech
@@ -23,11 +23,11 @@ final class Verb extends PartOfSpeech
 
     protected function loadWordsList(): array
     {
-        return require __DIR__ . "/Config/list.verb.php";
+        return require __DIR__ . "/../Dictionary/list.verb.php";
     }
 
     protected function loadWordsExceptions(): array
     {
-        return require __DIR__ . "/Config/exceptions.verb.php";
+        return require __DIR__ . "/../Dictionary/exceptions.verb.php";
     }
 }

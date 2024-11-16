@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Markard\Dictionary;
+namespace Markard\Pos;
 
-use Markard\Dictionary\FindIrregularBaseBehavior\IrregularBaseFinder;
-use Markard\Dictionary\FindRegularBaseBehavior\NounRegularBaseFinder;
+use Markard\BaseFinder\FindIrregularBaseBehavior\IrregularBaseFinder;
+use Markard\BaseFinder\FindRegularBaseBehavior\NounRegularBaseFinder;
 use Markard\Lemma;
 
 final class Noun extends PartOfSpeech
@@ -23,11 +23,11 @@ final class Noun extends PartOfSpeech
 
     protected function loadWordsList(): array
     {
-        return require __DIR__ . "/Config/list.noun.php";
+        return require __DIR__ . "/../Dictionary/list.noun.php";
     }
 
     protected function loadWordsExceptions(): array
     {
-        return require __DIR__ . "/Config/exceptions.noun.php";
+        return require __DIR__ . "/../Dictionary/exceptions.noun.php";
     }
 }
