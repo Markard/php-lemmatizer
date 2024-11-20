@@ -1,5 +1,5 @@
 {
-  "name": "skyeng/php-lemmatizer",
+  "name": "markard/php-lemmatizer",
   "type": "library",
   "description": "PHP Lemmatizer is a lemmatization library to retrieve a base form from an English inflected word.",
   "keywords": [
