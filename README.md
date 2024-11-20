@@ -9,13 +9,13 @@ Inspired by [JavaScript Lemmatizer](https://github.com/takafumir/javascript-lemm
 ### With Composer
 
 ```
-$ composer require skyeng/php-lemmatizer
+$ composer require markard/php-lemmatizer
 ```
 
 ```json
 {
     "require": {
-        "skyeng/php-lemmatizer": "^1.0"
+        "markard/php-lemmatizer": "^1.0"
     }
 }
 ```
@@ -25,8 +25,8 @@ $ composer require skyeng/php-lemmatizer
 ```php
 <?php
 
-use Skyeng\Lemmatizer;
-use Skyeng\Lemma;
+use Markard\Lemmatizer;
+use Markard\Lemma;
 
 // Require Composer's autoloader
 require_once __DIR__ . "/vendor/autoload.php";
@@ -62,7 +62,7 @@ $lemmas = $lemmatizer->getLemmas('MacBooks'); // => [ new Lemma('MacBooks', Lemm
 
 ## Contribution
 
-1. Fork it ( https://github.com/skyeng/php-lemmatizer )
+1. Fork it ( https://github.com/markard/php-lemmatizer )
 1. Create your feature branch (git checkout -b my-new-feature)
 1. Commit your changes (git commit -am 'Add some feature')
 1. Push to the branch (git push origin my-new-feature)
@@ -70,4 +70,4 @@ $lemmas = $lemmatizer->getLemmas('MacBooks'); // => [ new Lemma('MacBooks', Lemm
 
 ## Licence
 
-[MIT License](https://github.com/skyeng/php-lemmatizer/blob/master/LICENSE)
+[MIT License](https://github.com/markard/php-lemmatizer/blob/master/LICENSE)
