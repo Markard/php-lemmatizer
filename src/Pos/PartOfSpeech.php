@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Markard\Pos;
 
-use Markard\BaseFinder\FindIrregularBaseBehavior\AbstractIrregularBaseFinder;
 use Markard\BaseFinder\FindRegularBaseBehavior\AbstractRegularBaseFinder;
+use Markard\BaseFinder\IrregularBaseFinder;
 use Markard\Lemma;
 use Markard\Word;
 
@@ -15,7 +15,7 @@ abstract class PartOfSpeech
 
     protected array $exceptions = [];
 
-    protected AbstractIrregularBaseFinder $findIrregularBaseBehavior;
+    protected IrregularBaseFinder $findIrregularBaseBehavior;
 
     protected AbstractRegularBaseFinder $findRegularBaseBehavior;
 

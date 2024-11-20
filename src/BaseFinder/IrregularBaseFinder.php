@@ -2,12 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Markard\BaseFinder\FindIrregularBaseBehavior;
+namespace Markard\BaseFinder;
 
+use Markard\Pos\PartOfSpeech;
 use Markard\Word;
 
-final class IrregularBaseFinder extends AbstractIrregularBaseFinder
+final class
+IrregularBaseFinder
 {
+    private PartOfSpeech $partOfSpeech;
+
+    public function __construct(PartOfSpeech $partOfSpeech)
+    {
+        $this->partOfSpeech = $partOfSpeech;
+    }
+
     public function getIrregularBase(Word $word): ?string
     {
         $wordString = $word->asString();

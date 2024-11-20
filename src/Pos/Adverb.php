@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Markard\Pos;
 
-use Markard\BaseFinder\FindIrregularBaseBehavior\IrregularBaseFinder;
 use Markard\BaseFinder\FindRegularBaseBehavior\AdjectiveRegularBaseFinder;
+use Markard\BaseFinder\IrregularBaseFinder;
 use Markard\Lemma;
 
 final class Adverb extends PartOfSpeech
